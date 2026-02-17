@@ -5,6 +5,7 @@ namespace Les2
 {
     public static class MauiProgram
     {
+       
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
@@ -19,6 +20,8 @@ namespace Les2
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            // dit maakt een object aan elke keer als het aangevraagd word.
+
             builder.Services.AddScoped<PersoonVM>();
             builder.Services.AddScoped<View>();
             
@@ -27,6 +30,9 @@ namespace Les2
             
             builder.Services.AddScoped<NamenViewModel>();
             builder.Services.AddScoped<NamenPage>();
+
+            builder.Services.AddScoped<WerknemerViewModel>();
+            builder.Services.AddScoped<WerknemerPage>();
 
 
             return builder.Build();

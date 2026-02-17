@@ -24,5 +24,9 @@
         Title="Namen Toevoegen"
         ContentTemplate="{DataTemplate local:NamenPage}"
         Route="NamenPage" />
+    <ShellContent
+        Title="Werknemer Toevoegen"
+        ContentTemplate="{DataTemplate local:WerknemerPage}"
+        Route="WerknemerPage" />
 
 </Shell>

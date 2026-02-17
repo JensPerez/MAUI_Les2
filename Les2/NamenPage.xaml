@@ -4,10 +4,23 @@
              x:Class="Les2.NamenPage"
              xmlns:viewmodel="clr-namespace:Les2.ViewModel"
              Title="{Binding Title}">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout Margin="10">
+        <Entry Text="{Binding Naam}" Placeholder="Geef een naam in" />
+        <Button Text="Naam toevoegen" Command="{Binding NaamToevoegenCommand}" />
+
+        <CollectionView ItemsSource="{Binding Namen}" EmptyView="Er zijn nog geen namen">
+            <CollectionView.Header>
+                <Label Text="Namen: " FontSize="Medium" />
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding}" FontSize="Small" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+
+
     </VerticalStackLayout>
 </ContentPage>

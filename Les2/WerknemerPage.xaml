@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Les2.WerknemerPage"
+             xmlns:viewmodel="clr-namespace:Les2.ViewModel"
+             xmlns:model="clr-namespace:Les2.Models"
+             x:DataType="viewmodel:WerknemerViewModel"
+             Title="{Binding Title}">
+                
+    <VerticalStackLayout Margin="10">
+        
+        <!--Invoervelden-->
+        <Entry Text="{Binding Werknemer.ID}" Placeholder="Geef een ID in"/>
+        <Entry Text="{Binding Werknemer.Achternaam}" Placeholder="Geef een Achternaam in"/>
+        <Entry Text="{Binding Werknemer.Voornaam}" Placeholder="Geef een Voornaam in"/>
+
+        <HorizontalStackLayout>
+            <Label Text="Wat is de functie van de werknemer?"/>
+            <Picker SelectedItem="{Binding Werknemer.Functie}">
+                <Picker.Items>
+                    <x:String>Manager</x:String>
+                    <x:String>Developer</x:String>
+                    <x:String>Designer</x:String>
+
+                </Picker.Items>
+            </Picker>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label Text="Wat is de geboortedatum van de werknemer?" />
+            <DatePicker Date="{Binding Werknemer.GeboorteDatum}" />
+        </HorizontalStackLayout>
+        
+        <Button Text="Werknemer toevoegen" Command="{Binding WerknemerToevoegenCommand}" />
+        
+        <!--Gegenereerde items-->
+
+        <CollectionView ItemsSource="{Binding Werknemers}" SelectedItem="{Binding Werknemer}">
+            <CollectionView.Header>
+                <Grid ColumnDefinitions="*,*,*,*,*">
+                    <Label Text="ID" Grid.Column="0" FontSize="Small" />
+                    <Label Text="Naam" Grid.Column="1" FontSize="Small" />
+                    <Label Text="Functie" Grid.Column="2" FontSize="Small" />
+                    <Label Text="Geboortedatum" Grid.Column="3" FontSize="Small" />
+                    <Label Text="In dienst sinds" Grid.Column="4" FontSize="Small" />
+                </Grid>
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Werknemer">
+                    <Grid ColumnDefinitions="*,*,*,*,*">
+                        <Label Text="{Binding ID}" Grid.Column="0" FontSize="Small" />
+                        <Label Text="{Binding VolledigeNaam}" Grid.Column="1" FontSize="Small" />
+                        <Label Text="{Binding Functie}" Grid.Column="2" FontSize="Small" />
+                        <Label Text="{Binding GeboorteDatum, StringFormat='{0:dd-MM-yyyy}'}" Grid.Column="3" />
+                        <Label Text="{Binding InDienst, StringFormat='{0:dd-MM-yyyy}'}" Grid.Column="4" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

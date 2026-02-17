@@ -26,6 +26,7 @@ namespace Les2.ViewModel
         [RelayCommand]
         private void NaamToevoegen()
         {
+            if (!string.IsNullOrWhiteSpace(Naam))
             namen.Add(Naam);
             Naam = "";
         }
