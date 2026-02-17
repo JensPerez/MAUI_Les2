@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Les2.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Les2"
+    Title="Les2">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="PersonPage"
+        ContentTemplate="{DataTemplate local:View}"
+        Route="View" />
+
+    <ShellContent
+        Title="Oefening2"
+        ContentTemplate="{DataTemplate local:Oefening2}"
+        Route="Oefening2" />
+    <ShellContent
+        Title="Namen Toevoegen"
+        ContentTemplate="{DataTemplate local:NamenPage}"
+        Route="NamenPage" />
+
+</Shell>
