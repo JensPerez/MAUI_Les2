@@ -16,14 +16,7 @@
 
         <HorizontalStackLayout>
             <Label Text="Wat is de functie van de werknemer?"/>
-            <Picker SelectedItem="{Binding Werknemer.Functie}">
-                <Picker.Items>
-                    <x:String>Manager</x:String>
-                    <x:String>Developer</x:String>
-                    <x:String>Designer</x:String>
-
-                </Picker.Items>
-            </Picker>
+            <Picker ItemsSource="{Binding Functies}" SelectedItem="{Binding Werknemer.Functie}"/>
         </HorizontalStackLayout>
 
         <HorizontalStackLayout>

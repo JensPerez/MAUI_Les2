@@ -9,5 +9,7 @@ namespace Les2.Data
     {
         List<Werknemer> GetWerknemers();
 
+        void VoegWerknemerToe(Werknemer werknemer);
+
     }
 }

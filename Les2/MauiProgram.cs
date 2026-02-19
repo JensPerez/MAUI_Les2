@@ -34,6 +34,11 @@ namespace Les2
             builder.Services.AddScoped<WerknemerViewModel>();
             builder.Services.AddScoped<WerknemerPage>();
 
+            builder.Services.AddScoped<IWerknemerRepo, WerknemerRepo>();
+            builder.Services.AddScoped<IFunctieRepo, FunctieRepo>();
+
+
+
 
             return builder.Build();
 
