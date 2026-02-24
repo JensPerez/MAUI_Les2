@@ -2,13 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Les2.NavigationPage"
+             xmlns:viewmodel="clr-namespace:Les2.ViewModel"
+             xmlns:model="clr-namespace:Les2.Models"
+             x:DataType="viewmodel:NavigationViewModel"
              Title="NavigationTestPage">
     <VerticalStackLayout>
         <Label 
             Text="Manual navigation works!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        
-        <Button Text="Toon Info" Command=""
+
+        <Button Text="Toon Info" Command="{Binding ToonInformatieCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

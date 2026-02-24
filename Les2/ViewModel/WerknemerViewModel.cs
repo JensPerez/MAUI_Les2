@@ -44,21 +44,13 @@ namespace Les2.ViewModel
         }
 
         [RelayCommand]
-        private async void GoToNavigation()
+        private async void GoToNavigation(Werknemer werknemer)
         {
 
-            Dictionary<string, object> werkNemers = new Dictionary<string, object>()
-            {
 
-                { "Werknemer1", new Werknemer {Voornaam = "Michiel", Achternaam = "Wouters"}},
-                //{ "Werknemer2", new Werknemer {Voornaam = "Jef", Achternaam = "Pieters"}},
-                //{ "Werknemer3", new Werknemer {Voornaam = "Foemp", Achternaam = "Foemper"}},
-                //{ "Werknemer4", new Werknemer {Voornaam = "Kak", Achternaam = "pisser"}}
-                
-            };
 
             // BELANGRIJK!!!!!!!!!!!!!!!!!!!! Examenvraag
-            await Shell.Current.GoToAsync(nameof(NavigationPage),true, werkNemers);
+            await Shell.Current.GoToAsync(nameof(NavigationPage),true, new Dictionary<string, object> { { "Werknemer", werknemer } });
 
         }
 

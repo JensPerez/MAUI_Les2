@@ -2,8 +2,9 @@ namespace Les2;
 
 public partial class NavigationPage : ContentPage
 {
-	public NavigationPage()
+	public NavigationPage(NavigationViewModel vm)
 	{
 		InitializeComponent();
-	}
+        BindingContext = vm;
+    }
 }

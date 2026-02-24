@@ -6,16 +6,24 @@ using System.Text;
 
 namespace Les2.ViewModel
 {
-    [QueryProperty(nameof(Werknemer), "Werknemer1")]
+    [QueryProperty(nameof(Werknemer), "Werknemer")]
     public partial class NavigationViewModel : BaseViewModel
     {
         [ObservableProperty]
-        Werknemer werkNemerDetail;
+        Werknemer werknemer;
+
+        partial void OnWerknemerChanged(Werknemer value)
+        {
+            if (werknemer == null)
+            {
+                Shell.Current.DisplayAlert("Error!", "Geen werknemer gevonden", "shit");
+            }
+        }
 
         [RelayCommand]
         public async void ToonInformatie()
         {
-            await Shell.Current.DisplayAlertAsync("Werknemer Info", $"Werknemer: {werkNemerDetail.VolledigeNaam}", "Ok");
+            await Shell.Current.DisplayAlertAsync("Werknemer Info", $"Werknemer: {werknemer.VolledigeNaam}", "Ok");
         }
     }
 }
