@@ -53,5 +53,8 @@
             
         </CollectionView>
 
+        <Button Text="Ga naar navigatie" Command="{Binding GoToNavigationCommand}" />
+        
+
     </VerticalStackLayout>
 </ContentPage>

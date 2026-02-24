@@ -43,5 +43,24 @@ namespace Les2.ViewModel
             Werknemer = new Werknemer();
         }
 
+        [RelayCommand]
+        private async void GoToNavigation()
+        {
+
+            Dictionary<string, object> werkNemers = new Dictionary<string, object>()
+            {
+
+                { "Werknemer1", new Werknemer {Voornaam = "Michiel", Achternaam = "Wouters"}},
+                //{ "Werknemer2", new Werknemer {Voornaam = "Jef", Achternaam = "Pieters"}},
+                //{ "Werknemer3", new Werknemer {Voornaam = "Foemp", Achternaam = "Foemper"}},
+                //{ "Werknemer4", new Werknemer {Voornaam = "Kak", Achternaam = "pisser"}}
+                
+            };
+
+            // BELANGRIJK!!!!!!!!!!!!!!!!!!!! Examenvraag
+            await Shell.Current.GoToAsync(nameof(NavigationPage),true, werkNemers);
+
+        }
+
     }
 }
